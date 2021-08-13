@@ -1,0 +1,17 @@
+# 服务端口号
+server:
+  port: 7200
+spring:
+  application:
+    # 服务应用名
+    name: es
+  # ElasticSearch配置
+  elasticsearch:
+    rest:
+      # elasticsearch服务端地址，可配置多个节点
+      uris:
+        - http://localhost:9200
+      connection-timeout: 10s
+      read-timeout: 30s
+      username: elastic
+      password: 123456
