@@ -77,8 +77,9 @@ public class ProductTest {
         NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
         // 2. 设置查询条件
         // 2.1 设置匹配查询
-        nativeSearchQueryBuilder.withQuery(QueryBuilders.matchQuery("name", keyword));
-        //nativeSearchQueryBuilder.withQuery(QueryBuilders.fuzzyQuery("title", keyword)); // 模糊查询
+        //nativeSearchQueryBuilder.withQuery(QueryBuilders.matchQuery("name", keyword));
+        //nativeSearchQueryBuilder.withQuery(QueryBuilders.fuzzyQuery("name", keyword)); // 模糊查询
+        nativeSearchQueryBuilder.withQuery(QueryBuilders.termQuery("name", keyword)); // 词条查询
         // 2.2 设置分页条件
         Pageable pageable = PageRequest.of((page - 1), pageSize, Sort.by(Sort.Direction.ASC, "id"));
         nativeSearchQueryBuilder.withPageable(pageable);
